@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns:th="<http://www.thymeleaf.org>">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gerador de Senhas Seguras</title>
+</head>
+
+<body>
+
+<div id="parent">
+
+    <div id="title">
+        <h1> Gerador de senhas </h1>
+    </div>
+
+    <div id="container">
+
+        <div id="generatePassword">
+
+            <input type="text" id="generatedPassword" value="Senha gerada" readonly>
+            <div class="button-container">
+                <button id="buttonSubmit" role="button" onclick="validateData()">Gerar senha</button>
+                <button id="buttonCopy" role="button" onclick="copy()"><i class="fa-regular fa-copy"></i></button>
+            </div>
+        </div>
+
+        <div id="options">
+
+            <div class="slider-container">
+                <label for="passwordLength">Comprimento da senha: <span class="slider-value"
+                                                                        id="sliderValue">8</span></label>
+                <input type="range" id="passwordLength" min="8" max="32" value="8" step="1"/>
+            </div>
+            <br>
+
+            <div class="checkbox">
+                <input type="checkbox" id="simbols" name="simbols" value="simbols"/>
+                <label class="toggle" for="simbols">
+                    <span></span>
+                </label>
+                <label class="checkbox-text" for="simbols">Gerar senha com símbolos</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="upperCase" name="upperCase" value="upperCaseLetters"/>
+                <label class="toggle" for="upperCase">
+                    <span></span>
+                </label>
+                <label class="checkbox-text" for="upperCase">Gerar senha com maiúsculas</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="lowerCase" name="lowerCase" value="lowerCaseLetters"/>
+                <label class="toggle" for="lowerCase">
+                    <span></span>
+                </label>
+                <label class="checkbox-text" for="lowerCase">Gerar senha com minúsculas</label>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="numbers" name="numbers" value="numbers"/>
+                <label class="toggle" for="numbers">
+                    <span></span>
+                </label>
+                <label class="checkbox-text" for="numbers">Gerar senha com números</label>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        &copy; <span id="currentYear"></span> Gustavo Pombal. Todos os direitos reservados.
+        <a href="https://github.com/PombalGustavo"> <i class='fab fa-github fa-2x'></i> </a>
+    </p>
+</footer>
+
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+
+</html>

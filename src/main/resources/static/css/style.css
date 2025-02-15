@@ -1,0 +1,302 @@
+body {
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+    background: linear-gradient(90deg, #2A2634, #271A45);
+    color: #fff;
+    height: 100%;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60vh;
+    gap: 20px;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+     #container {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     #generatePassword,
+     #options {
+         min-width: 100%;
+         padding: 15px;
+         border: none;
+     }
+
+ }
+
+#generatePassword,
+#options {
+    flex: 1;
+    padding: 15px;
+    width: 300px;
+    height: 200px;
+    border: none;
+    background: transparent;
+    min-width: 45%;
+    max-width: 100%;
+}
+
+#generatePassword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#generatePassword .button-container {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+#generatePassword input {
+    width: 100%;
+    height: 40px;
+    color: #808080;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    border-style: none;
+}
+
+#buttonSubmit {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #405cf5;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+    font-size: 100%;
+    height: 40px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 125px;
+}
+
+#buttonSubmit:hover {
+    background-color: #3548d1;
+}
+
+#buttonCopy {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #808080;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
+    height: 40px;
+    line-height: 1.15;
+    margin: 12px;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+}
+
+#buttonCopy:hover {
+    background-color: #606060;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox .checkbox-text {
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox .toggle {
+    margin-right: 10px;
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox .toggle:before {
+    content: "";
+    position: relative;
+    top: 3px;
+    left: 3px;
+    width: 34px;
+    height: 14px;
+    display: block;
+    background: #9A9999;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.checkbox .toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+    transition: all 0.2s ease;
+}
+
+.checkbox .toggle span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    margin: -18px;
+    width: 56px;
+    height: 56px;
+    background: rgba(79, 46, 220, 0.5);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    pointer-events: none;
+}
+
+.checkbox input[type="checkbox"]:checked+.toggle:before {
+    background: #6b8dfb;
+}
+
+.checkbox input[type="checkbox"]:checked+.toggle span {
+    background: #405cf5;
+    transform: translateX(20px);
+    transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25) 0.15s ease;
+    box-shadow: 0 3px 8px rgba(79, 46, 220, 0.2);
+}
+
+.checkbox input[type="checkbox"]:checked+.toggle span:before {
+    transform: scale(1);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.slider-container {
+    text-align: center;
+}
+
+.slider-container label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.slider-container input[type="range"] {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 8px;
+    background: #d3d3d3;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #405cf5;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-container input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #405cf5;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-value {
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+}
+
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 1em;
+    margin-top: auto;
+}
+
+footer i {
+    color: #000;
+    padding: 10px;
+}
