@@ -29,12 +29,12 @@
             </div>
         </div>
 
-        <form th:action="@{/processar}" th:object="${passwordOptions}" method="post">
+        <form th:action="@{/home}" th:object="${passwordOptions}" method="post">
 
             <div class="slider-container">
                 <label for="passwordLength">Comprimento da senha: <span class="slider-value"
                                                                         id="sliderValue">8</span></label>
-                <input type="range" id="passwordLength" min="8" max="32" value="8" step="1"/>
+                <input type="range" id="passwordLength" min="8" max="32" value="8" step="1" th:checked="${passwordOptions}"/>
             </div>
             <br>
 

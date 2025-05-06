@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PasswordGeneratorController {
 
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(PasswordOptions passwordOptions, Model model) {
+
         return "home";
     }
 
 
 
-    public String passwordGenerator(PasswordOptions passwordOptions){
-
-        return "";
-    }
 }

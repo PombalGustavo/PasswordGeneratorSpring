@@ -1,15 +1,6 @@
 package com.pombalGustavo.Password_Generator.model;
 
-import com.pombalGustavo.Password_Generator.exception.PasswordException;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
 public class PasswordOptions {
-    private static final String textSimbols = "\"!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~\"";
-    private static final String textUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String textLowerCase = "abcdefghijklmnopqrstuvwxyz";
-    private static final String textNumbers = "0123456789";
 
     private boolean simbols;
     private boolean upperCase;
@@ -67,56 +58,4 @@ public class PasswordOptions {
     public void setPasswordLength(Integer passwordLength) {
         this.passwordLength = passwordLength;
     }
-
-    public String validateOptions() {
-        StringBuilder sb = new StringBuilder();
-
-        if (isSimbols()) {
-            sb.append(textSimbols);
-        }
-        if (isUpperCase()) {
-            sb.append(textUpperCase);
-        }
-        if (isLowerCase()) {
-            sb.append(textLowerCase);
-        }
-        if (isNumbers()) {
-            sb.append(textNumbers);
-        }
-
-        if (sb.isEmpty()) {
-            throw new PasswordException("Erro! Nenhuma opção para a senha foi escolhida");
-        }
-
-        return sb.toString();
-    }
-
-    public String generateRandomPassword(String passwordOptions) {
-
-        StringBuilder sb = new StringBuilder();
-
-        try {
-            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
-
-            for (int i = 0; i < passwordLength; i++) {
-                int randomInt = secureRandom.nextInt(passwordOptions.length());
-                char randomChar = passwordOptions.charAt(randomInt);
-
-                if (i == 0 || i == passwordLength - 1 && isSimbols() && textSimbols.contains(String.valueOf(randomChar))) {
-                    while (textSimbols.contains(String.valueOf(randomChar))) {
-                        randomInt = secureRandom.nextInt(passwordOptions.length());
-                        randomChar = passwordOptions.charAt(randomInt);
-                    }
-                }
-                sb.append(randomChar);
-            }
-
-        } catch (NoSuchAlgorithmException e) {
-            System.err.println("Algoritmo SecureRandom não encontrado: " + e.getMessage());
-        }
-
-        return sb.toString();
-    }
-
-
 }
